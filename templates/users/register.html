@@ -1,0 +1,25 @@
+{% extends '_base.html' %}
+
+{% load static %}
+
+{% block title %}Registration Page{% endblock %}
+
+
+{% block content %}
+<h2>Hi there! Please fill out the form below to register.</h2>
+<form action="{% url 'registration' %}" method="POST">
+    {% csrf_token %}
+    <input type="text" name="first_name" class="form-input" placeholder="Имя..." required>
+    <input type="text" name="last_name" class="form-input" placeholder="Фамилия..." required>
+    <input type="text" name="username" class="form-input" placeholder="Логин..." required>
+    <input type="email" name="email" class="form-input" placeholder="Почта..." required>
+    <input type="password" name="password1" class="form-input" placeholder="Пароль..." required>
+    <input type="password" name="password2" class="form-input" placeholder="Повторите Пароль..." required>
+    <input type="submit" value="Register">
+</form>
+{% for message in messages %}
+    <div class="alert alert-{{ message.tags }}">
+        {{ message }}
+    </div>
+{% endfor %}
+{% endblock %}
