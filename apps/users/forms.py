@@ -25,8 +25,16 @@ class RegistrationForm(UserCreationForm):
     last_name = create_form_field(forms.CharField, "Фамилия...", "inpPass")
     username = create_form_field(forms.CharField, "Логин...", "inp90")
     email = create_form_field(forms.EmailField, "Почта...", "inp90")
-    password1 = forms.CharField(widget=forms.PasswordInput(attrs={"placeholder": "Пароль...", "class": "inpPass"}))
-    password2 = forms.CharField(widget=forms.PasswordInput(attrs={"placeholder": "Повторите Пароль...", "class": "inpPass"}))
+    password1 = forms.CharField(
+        widget=forms.PasswordInput(
+            attrs={"placeholder": "Пароль...", "class": "inpPass"}
+        )
+    )
+    password2 = forms.CharField(
+        widget=forms.PasswordInput(
+            attrs={"placeholder": "Повторите Пароль...", "class": "inpPass"}
+        )
+    )
 
     class Meta:
         model = User
@@ -42,7 +50,9 @@ class RegistrationForm(UserCreationForm):
 
 class LoginForm(AuthenticationForm):
     username = create_form_field(forms.CharField, "Логин...", "inp90")
-    password = forms.CharField(widget=forms.PasswordInput(attrs={"placeholder": "Пароль...", "class": "inp90"}))
+    password = forms.CharField(
+        widget=forms.PasswordInput(attrs={"placeholder": "Пароль...", "class": "inp90"})
+    )
 
     class Meta:
         model = User

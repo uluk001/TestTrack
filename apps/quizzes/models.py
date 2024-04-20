@@ -11,7 +11,7 @@ class Quiz(models.Model):
 
 
 class Question(models.Model):
-    quiz = models.ForeignKey(Quiz, related_name='questions', on_delete=models.CASCADE)
+    quiz = models.ForeignKey(Quiz, related_name="questions", on_delete=models.CASCADE)
     text = models.CharField(max_length=255)
 
     def __str__(self):
@@ -19,7 +19,9 @@ class Question(models.Model):
 
 
 class Choice(models.Model):
-    question = models.ForeignKey(Question, related_name='choices', on_delete=models.CASCADE)
+    question = models.ForeignKey(
+        Question, related_name="choices", on_delete=models.CASCADE
+    )
     text = models.CharField(max_length=255)
     is_correct = models.BooleanField(default=False)
 
@@ -27,10 +29,12 @@ class Choice(models.Model):
         return self.text
 
 
-class Result(models.Model):
-    quiz = models.ForeignKey(Quiz, on_delete=models.CASCADE)
+class TestResult(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    score = models.IntegerField()
+    quiz = models.ForeignKey(Quiz, on_delete=models.CASCADE)
+    results = models.JSONField()
+    score = models.FloatField()
+    completed_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"{self.user.username}: {self.score}"
+        return f"{self.user.username} - {self.quiz.name}"

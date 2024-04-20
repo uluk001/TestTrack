@@ -41,7 +41,7 @@ def registration_view(request):
             form.save()
             logger.info(f"New user registered: {form.cleaned_data['username']}")
             messages.success(request, "Registration successful. Please log in.")
-            return redirect('login')
+            return redirect("login")
         else:
             logger.error(f"Registration error: {form.errors}")
             messages.error(request, "Registration failed. Please correct the errors.")

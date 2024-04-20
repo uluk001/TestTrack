@@ -1,0 +1,12 @@
+{% extends '_base.html' %}
+
+{% block title %}Quiz Page{% endblock %}
+
+{% block content %}
+    <h2>{{ quiz.name }}</h2>
+    <p>{{ quiz.description }}</p>
+    {% for question in quiz.questions.all %}
+        <h4>{{ question.text }}</h3>
+    {% endfor %}
+    <a href="{% url 'start_quiz' quiz_id=quiz.id %}">Start Quiz</a>
+{% endblock %}

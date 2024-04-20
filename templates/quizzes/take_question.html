@@ -1,0 +1,15 @@
+{% extends "_base.html" %}
+
+{% block content %}
+    <form method="POST" action="{% url 'take_question' question_id=question.id %}">
+        {% csrf_token %}
+        <label for="question">{{ question.text }}</label>
+        {% for choice in choices %}
+        <div>
+            <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
+            <label for="choice{{ forloop.counter }}">{{ choice.text }}</label>
+        </div>
+        {% endfor %}
+        <input type="submit" value="Submit Answer">
+    </form>
+{% endblock %}

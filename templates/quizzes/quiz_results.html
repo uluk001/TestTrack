@@ -1,0 +1,8 @@
+{% extends "_base.html" %}
+
+{% block content %}
+    <h2>{{ quiz.name }}</h2>
+    <p>{{ quiz.description }}</p>
+    <h3>Correct Answers: {{ correct_answers }}/{{ total_questions }}</h3>
+    <h3>Your Score: {{ score }}%</h3>
+{% endblock %}
