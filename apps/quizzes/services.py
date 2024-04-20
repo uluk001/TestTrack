@@ -1,5 +1,6 @@
-from .models import Quiz, Question
 from django.shortcuts import get_object_or_404
+
+from .models import Question, Quiz
 
 
 class QuizService:

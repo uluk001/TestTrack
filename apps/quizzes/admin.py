@@ -1,8 +1,10 @@
 from typing import Any
+
 from django.contrib import admin
 
 from apps.quizzes.forms import ChoiceInlineFormset
-from .models import Quiz, Question, Choice
+
+from .models import Choice, Question, Quiz
 
 
 class ChoiceInline(admin.TabularInline):
