@@ -31,22 +31,30 @@ Make sure you have Python 3.6 or higher and `pip` installed.
    pip install -r requirements.txt
    ```
 
-4. Run migrations to create database schema:
+4. Create a `.env` file in the project directory with the following settings (modify as necessary):
+   ```
+   # Basic configurations
+
+   SECRET_KEY=secret
+   DEBUG=True
+   ```
+
+5. Run migrations to create database schema:
    ```
    python manage.py migrate
    ```
 
-5. Create an admin user:
+6. Create an admin user:
    ```
    python manage.py createsuperuser
    ```
 
-6. Run the development server:
+7. Run the development server:
    ```
    python manage.py runserver
    ```
 
-7. Visit `http://127.0.0.1:8000/` in your browser to start using the application.
+8. Visit `http://127.0.0.1:8000/` in your browser to start using the application.
 
 ## Usage
 
